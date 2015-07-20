@@ -46,20 +46,29 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback{
         float bl[] = new float[] {50, 0, 50, 850, 50, 850, 1000, 850};
 
         Paint baseLine = new Paint ();
-        Canvas c = holder.lockCanvas();
+        final Canvas c = holder.lockCanvas();
         white.setColor(Color.WHITE);
         white.setStrokeWidth(3);
         baseLine.setColor(Color.WHITE);
         baseLine.setStrokeWidth(10);
         c.drawLines(bl, 0, 8, baseLine);
-
         holder.unlockCanvasAndPost(c);
-    }
-    public void drawDots(SurfaceHolder holder){
+        final EditText xc = (EditText)findViewById(R.id.xVar);
+        final EditText yc = (EditText)findViewById(R.id.yVar);
+        Button entBtn = (Button)findViewById(R.id.enterBtn);
+        entBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String xx = xc.getText().toString();
+                Float x1 = Float.parseFloat(xx);
+                String yy = yc.getText().toString();
+                Float y1 = Float.parseFloat(yy);
+                c.drawCircle(x1, y1, 5, white);
+            }
+        });
 
-        Canvas d = holder.lockCanvas();
-        //d.drawCircle(x1, y1, );
     }
+
 
     public void surfaceCreated(SurfaceHolder holder){
         drawLines(holder);
