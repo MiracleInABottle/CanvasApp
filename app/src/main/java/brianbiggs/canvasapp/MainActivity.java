@@ -34,7 +34,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback{
                 Float x1 = Float.parseFloat(xx);
                 String yy = yc.getText().toString();
                 Float y1 = Float.parseFloat(yy);
-                drawDots(x1, y1);
+                //drawDots(x1, y1);
 
             }
         });
@@ -58,7 +58,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback{
     public void drawDots(SurfaceHolder holder){
 
         Canvas d = holder.lockCanvas();
-        d.drawCircle(x1, y1, );
+        //d.drawCircle(x1, y1, );
     }
 
     public void surfaceCreated(SurfaceHolder holder){
